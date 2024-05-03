@@ -9,7 +9,7 @@ function Category({ handleClick }) {
   const [categorias, setCategorias] = useState([
     {
       categ: "",
-      title: "All Products",
+      title: "Todos",
     },
     {
       categ: "sed",
