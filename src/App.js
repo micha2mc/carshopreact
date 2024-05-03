@@ -1,8 +1,84 @@
+import { useState } from "react";
+import Navigation from "./components/Nav";
+import Products from "./components/Products";
+
+
+//Database
+import products from "./database/data";
+import Card from "./components/Card";
+import Carrito from "./components/Carrito";
+
 function App() {
+  
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [allProducts, setAllProducts] = useState(products);
+
+
+  //****************Input filter *************************
+  
+
+  const addProduct = (obj) => {
+
+    let miImagen = obj[0]['img']
+    
+    let imagen = 'img/'+miImagen.substring(miImagen.lastIndexOf('\\')+1);
+    setAllProducts([...allProducts, {id:allProducts.length+1,  cod:obj[0]['cod'], description: obj[0]['description'], price: obj[0]['price'], stock: obj[0]['stock'],
+    category: obj[0]['category'], img: imagen
+    }]);
+  }
+
+  //*****************************************
+  const handleChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  //****************Buttons filter *************************
+  const handleClick = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  function filteredData(productsTemp, selected) {
+    let filteredProducts = productsTemp;
+
+    //Selected Filter
+    if (selected) {
+      filteredProducts = filteredProducts.filter(
+        ({ category }) => category === selected
+      );
+    }
+    return filteredProducts.map(
+      ({ img, cod, description, price, stock, category }) => (
+        <Card
+          img={img}
+          cod={cod}
+          description={description}
+          price={price}
+          stock={stock}
+          category={category}
+        />
+      )
+    );
+  }
+
+  const result = filteredData(allProducts, selectedCategory);
+
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <Navigation handleClick={handleClick} addProduct={addProduct}/>
+      <div className="container py-5">
+        <div className="row">
+          <div className="col-lg-9">
+            <div class="row">
+
+              <Products result={result} />
+
+            </div>
+          </div>
+
+          <Carrito />
+        </div>
+      </div>
+    </>
   );
 }
 
