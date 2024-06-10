@@ -4,7 +4,6 @@ import "./css/Nav.css";
 import {
   Button,
   FormGroup,
-  Label,
   Modal,
   ModalBody,
   ModalFooter,

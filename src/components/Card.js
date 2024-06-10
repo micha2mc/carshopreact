@@ -1,6 +1,6 @@
 import { Button } from "reactstrap";
 
-function Card({ img, cod, description, price, stock, productCarrito, setProductCarrito, filteredProducts }) {
+function Card({ img, cod, description, price, stock, productCarrito, setProductCarrito, filteredProducts, total, setTotal }) {
 
   const onAddProduct = () => {
 
@@ -11,8 +11,10 @@ function Card({ img, cod, description, price, stock, productCarrito, setProductC
       const products = productCarrito.map(itemTem => itemTem.id === product.id ?
         { ...itemTem, quantity: itemTem.quantity + 1 } : itemTem
       );
+      setTotal(total + product.price * product.quantity);
       return setProductCarrito([...products]);
     }
+    setTotal(total + product.price * product.quantity);
     setProductCarrito([...productCarrito, product]);
 
   }

@@ -14,6 +14,7 @@ function App() {
   const [allProducts, setAllProducts] = useState(products);
 
   const [productCarrito, setProductCarrito] = useState([]);
+  const [total, setTotal] = useState(0);
 
 
   //****************Input filter *************************
@@ -29,11 +30,6 @@ function App() {
       category: obj[0]['category'], img: imagen
     }]);
   }
-
-  //*****************************************
-  const handleChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
 
   //****************Buttons filter *************************
   const handleClick = (event) => {
@@ -62,6 +58,8 @@ function App() {
           productCarrito={productCarrito}
           setProductCarrito={setProductCarrito}
           filteredProducts={filteredProducts}
+          total={total}
+          setTotal={setTotal}
         />
       )
     );
@@ -84,7 +82,10 @@ function App() {
 
           <Carrito
             productCarrito={productCarrito}
-            setProductCarrito={setProductCarrito} />
+            setProductCarrito={setProductCarrito}
+            total={total}
+            setTotal={setTotal}
+          />
         </div>
       </div>
     </>
