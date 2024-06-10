@@ -8,6 +8,7 @@ const data = [
     stock: 5,
     img: 'img/sedan_01.jpg',
     category: "sed",
+    quantity: 1,
     
   },
   {
@@ -18,7 +19,7 @@ const data = [
     stock: 5,
     img: 'img/sedan_02.jpg',
     category: "sed",
-    
+    quantity: 1,
   },
   {
     id: 3,
@@ -28,7 +29,7 @@ const data = [
     stock: 10,
     img: 'img/sedan_04.jpg',
     category: "sed",
-    
+    quantity: 1,
   },
   {
     id: 4,
@@ -38,7 +39,7 @@ const data = [
     stock: 25,
     img: 'img/sedan_05.jpg',
     category: "sed",
-    
+    quantity: 1,
   },
   {
     id: 5,
@@ -48,7 +49,7 @@ const data = [
     stock: 5,
     img: 'img/suv_01.jpg',
     category: "suv",
-    
+    quantity: 1,
   }
   ,
   {
@@ -59,7 +60,7 @@ const data = [
     stock: 15,
     img: 'img/familiar_01.jpg',
     category: "fam",
-    
+    quantity: 1,
   }
   ,
   {
@@ -70,7 +71,7 @@ const data = [
     stock: 7,
     img: 'img/mon_01.jpg',
     category: "mon",
-    
+    quantity: 1,
   }
 ];
 

@@ -1,8 +1,8 @@
-//import './css/Products.css';
+import './css/Products.css';
 
 function Products({ result }) {
   return (
-    <div>{result}</div>
+    <div className="container-items">{result}</div>
     
   );
 }

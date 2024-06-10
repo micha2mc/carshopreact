@@ -9,21 +9,24 @@ import Card from "./components/Card";
 import Carrito from "./components/Carrito";
 
 function App() {
-  
+
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [allProducts, setAllProducts] = useState(products);
 
+  const [productCarrito, setProductCarrito] = useState([]);
+
 
   //****************Input filter *************************
-  
+
 
   const addProduct = (obj) => {
 
     let miImagen = obj[0]['img']
-    
-    let imagen = 'img/'+miImagen.substring(miImagen.lastIndexOf('\\')+1);
-    setAllProducts([...allProducts, {id:allProducts.length+1,  cod:obj[0]['cod'], description: obj[0]['description'], price: obj[0]['price'], stock: obj[0]['stock'],
-    category: obj[0]['category'], img: imagen
+
+    let imagen = 'img/' + miImagen.substring(miImagen.lastIndexOf('\\') + 1);
+    setAllProducts([...allProducts, {
+      id: allProducts.length + 1, cod: obj[0]['cod'], description: obj[0]['description'], price: obj[0]['price'], stock: obj[0]['stock'],
+      category: obj[0]['category'], img: imagen
     }]);
   }
 
@@ -47,7 +50,7 @@ function App() {
       );
     }
     return filteredProducts.map(
-      ({ img, cod, description, price, stock, category }) => (
+      ({ img, cod, description, price, stock, category, quantity }) => (
         <Card
           img={img}
           cod={cod}
@@ -55,6 +58,10 @@ function App() {
           price={price}
           stock={stock}
           category={category}
+          quantity={quantity}
+          productCarrito={productCarrito}
+          setProductCarrito={setProductCarrito}
+          filteredProducts={filteredProducts}
         />
       )
     );
@@ -64,10 +71,10 @@ function App() {
 
   return (
     <>
-      <Navigation handleClick={handleClick} addProduct={addProduct}/>
-      <div className="container py-5">
+      <Navigation handleClick={handleClick} addProduct={addProduct} />
+      <div className="container">
         <div className="row">
-          <div className="col-lg-9">
+          <div className="col">
             <div class="row">
 
               <Products result={result} />
@@ -75,7 +82,9 @@ function App() {
             </div>
           </div>
 
-          <Carrito />
+          <Carrito
+            productCarrito={productCarrito}
+            setProductCarrito={setProductCarrito} />
         </div>
       </div>
     </>

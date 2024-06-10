@@ -1,4 +1,5 @@
-function Carrito (){
+function Carrito ({productCarrito, setProductCarrito}){
+  console.log(productCarrito)
     return (
         <>
             <div class="col-lg-3">
@@ -21,7 +22,9 @@ function Carrito (){
                   <th scope="col"></th>
                 </tr>
               </thead>
-              <tbody id="items"></tbody>
+              <tbody id="items">
+                
+              </tbody>
             </table>
             <table class="table table-borderless">
               <thead></thead>
