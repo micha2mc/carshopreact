@@ -5,6 +5,8 @@ import Products from "./components/Products";
 
 //Database
 import products from "./database/data";
+
+
 import Card from "./components/Card";
 import Carrito from "./components/Carrito";
 
@@ -73,7 +75,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <div class="row">
+            <div className="row">
 
               <Products result={result} />
 

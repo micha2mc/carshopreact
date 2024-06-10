@@ -1,17 +1,17 @@
 function Carrito({ productCarrito, setProductCarrito, total, setTotal }) {
   return (
     <>
-      <div class="col-lg-3">
-        <h1 class="h2 pb-4">
+      <div className="col-lg-3">
+        <h1 className="h2 pb-4">
           <a
-            class="nav-icon position-relative text-decoration-none"
+            className="nav-icon position-relative text-decoration-none"
             href="#"
           >
             <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
           </a>
           Carrito
         </h1>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col"></th>
@@ -52,7 +52,7 @@ function Carrito({ productCarrito, setProductCarrito, total, setTotal }) {
           </tbody>
         </table>
         {productCarrito.length !== 0 ? <>
-          <table class="table table-borderless">
+          <table className="table table-borderless">
             <thead></thead>
             <tbody id="footer">
               <tr>
