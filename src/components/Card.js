@@ -31,7 +31,7 @@ function Card({ img, cod, description, price, stock, productCarrito, setProductC
           <p className="text-left mb-0">{cod}</p>
           <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
             <li>
-              Descripción: <p>{description.substring(0,170)+ '...'}</p>
+              Descripción: <p>{description.substring(0, 170) + '...'}</p>
             </li>
           </ul>
           <p className="text-left mb-0">
