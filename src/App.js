@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navigation from "./components/Nav";
 import Products from "./components/Products";
+import "./App.css";
 
 
 //Database
@@ -9,6 +10,7 @@ import products from "./database/data";
 
 import Card from "./components/Card";
 import Carrito from "./components/Carrito";
+import TypeProduct from "./components/TypeProduct";
 
 function App() {
 
@@ -72,6 +74,7 @@ function App() {
   return (
     <>
       <Navigation handleClick={handleClick} addProduct={addProduct} />
+      <TypeProduct />
       <div className="container">
         <div className="row">
           <div className="col">
