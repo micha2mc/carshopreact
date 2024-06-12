@@ -3,6 +3,7 @@ import "./css/Card.css";
 
 function Card({ img, cod, description, price, stock, productCarrito, setProductCarrito, filteredProducts, total, setTotal }) {
 
+  let flagStock = false;
   const onAddProduct = () => {
 
     let product = filteredProducts.find(item => item.cod === cod);
@@ -20,10 +21,14 @@ function Card({ img, cod, description, price, stock, productCarrito, setProductC
 
   }
 
+  if (stock <= 0) {
+    flagStock = true;
+  }
+
 
   return (
     <div className="col-12  mb-2  col-md-4">
-      <div className="card mb-6 product-wap rounded-0">
+      <div className="card mb-6 product-wap rounded-0" style={{ opacity: flagStock ? 0.5 : 1 }}>
         <div className="card rounded-0">
           <img className="card-img rounded-0 img-fluid" src={img} />
         </div>
@@ -41,8 +46,10 @@ function Card({ img, cod, description, price, stock, productCarrito, setProductC
             Unidades Stock: <span>{stock}</span>
           </p>
           <div className="row pb-3">
-            <div class="col d-grid">
-              <Button className="btn btn-success btn-lg" onClick={() => onAddProduct()} >Agregar a la cesta</Button>
+            <div className="col d-grid">
+              {flagStock ?
+                <Button className="btn btn-success btn-lg" disabled >Agregar a la cesta</Button>
+                : <Button className="btn btn-success btn-lg" onClick={() => onAddProduct()} >Agregar a la cesta</Button>}
             </div>
           </div>
         </div>

@@ -2,9 +2,8 @@ import './css/TypeProduct.css';
 function TypeProduct({ categorias, selectedCategory }) {
 
     let message = 'Todos los productos'
-
-    if (selectedCategory !== '') {
-        const categTemp = categorias.filter(cat => cat.categ === selectedCategory);
+    const categTemp = categorias.filter(cat => cat.categ === selectedCategory);
+    if (selectedCategory !== '' && categTemp.length !== 0) {
         message = 'Productos de la categoria ' + categTemp[0].title;
     }
     return (
