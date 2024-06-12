@@ -74,8 +74,9 @@ function App() {
   return (
     <>
       <Navigation handleClick={handleClick} addProduct={addProduct} />
-      <TypeProduct />
+
       <div className="container">
+        <TypeProduct />
         <div className="row">
           <div className="col">
             <div className="row">

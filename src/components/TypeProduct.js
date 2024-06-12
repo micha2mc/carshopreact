@@ -1,9 +1,12 @@
-
+import './css/TypeProduct.css';
 function TypeProduct() {
-  return (
-    <p>HOla</p>
-    
-  );
+    return (
+        <div className="typeproduct">
+            <p>HOla</p>
+        </div>
+
+
+    );
 }
 
 export default TypeProduct;
