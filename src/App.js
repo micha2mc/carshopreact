@@ -20,6 +20,26 @@ function App() {
   const [productCarrito, setProductCarrito] = useState([]);
   const [total, setTotal] = useState(0);
 
+  //******************CAtegorias */
+  const [categorias, setCategorias] = useState([
+    {
+      categ: "",
+      title: "Todos",
+    },
+    {
+      categ: "sed",
+      title: "Sedan",
+    },
+    {
+      categ: "suv",
+      title: "SUV - 4x4",
+    },
+    {
+      categ: "fam",
+      title: "Familiar",
+    },
+  ]);
+
 
   //****************Input filter *************************
 
@@ -73,10 +93,17 @@ function App() {
 
   return (
     <>
-      <Navigation handleClick={handleClick} addProduct={addProduct} />
+      <Navigation
+        handleClick={handleClick}
+        addProduct={addProduct}
+        categorias={categorias}
+        setCategorias={setCategorias}
+      />
 
       <div className="container">
-        <TypeProduct />
+        <TypeProduct
+          categorias={categorias}
+          selectedCategory={selectedCategory} />
         <div className="row">
           <div className="col">
             <div className="row">

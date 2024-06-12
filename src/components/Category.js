@@ -1,41 +1,24 @@
 import { useState } from "react";
 import Buttons from "../components/Buttons";
 import "./css/Category.css";
-import { Button, FormGroup, Label, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { Button, FormGroup, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
-function Category({ handleClick }) {
+function Category({ handleClick, categorias, setCategorias }) {
   const [abierto, setQuery] = useState(false);
   const [newCat, setNewCat] = useState('');
-  const [categorias, setCategorias] = useState([
-    {
-      categ: "",
-      title: "Todos",
-    },
-    {
-      categ: "sed",
-      title: "Sedan",
-    },
-    {
-      categ: "suv",
-      title: "SUV - 4x4",
-    },
-    {
-      categ: "fam",
-      title: "Familiar",
-    },
-  ]);
 
-  const handleModal = () => { 
+
+  const handleModal = () => {
     setQuery(!abierto);
   };
 
   const handleChange = (event) => {
-    setNewCat({newCat : event.target.value})
+    setNewCat({ newCat: event.target.value })
   }
 
   const insertarNuevaCategoria = () => {
     setQuery(!abierto);
-    setCategorias([...categorias, {categ: newCat.newCat.substr(0,3).toLowerCase(), title: newCat.newCat}])
+    setCategorias([...categorias, { categ: newCat.newCat.substr(0, 3).toLowerCase(), title: newCat.newCat }])
   }
   return (
     <>
@@ -57,7 +40,7 @@ function Category({ handleClick }) {
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={()=>insertarNuevaCategoria()}>Guardar</Button>
+          <Button color="primary" onClick={() => insertarNuevaCategoria()}>Guardar</Button>
           <Button color="secondary" onClick={handleModal}>Cancelar</Button>
         </ModalFooter>
       </Modal>

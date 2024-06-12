@@ -10,7 +10,7 @@ import {
   ModalHeader,
 } from "reactstrap";
 
-function Nav({ handleClick, addProduct }) {
+function Nav({ handleClick, addProduct, categorias, setCategorias }) {
   const [isModal, setQuery] = useState(false);
   const [cod, setCod] = useState("");
   const [category, setCategory] = useState("");
@@ -89,7 +89,10 @@ function Nav({ handleClick, addProduct }) {
                   </a>
                   <ul className="dropdown-menu" id="categories">
                     <div className="col" id="item-categoria">
-                      <Category handleClick={handleClick} />
+                      <Category
+                        handleClick={handleClick}
+                        categorias={categorias}
+                        setCategorias={setCategorias} />
                     </div>
                   </ul>
                 </li>
@@ -113,7 +116,6 @@ function Nav({ handleClick, addProduct }) {
               className="form-control"
               name="cod"
               type="text"
-              //autoComplete="off"
               onChange={handleCod}
               placeholder="Enter Cod"
             />
