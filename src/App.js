@@ -84,6 +84,8 @@ function App() {
           filteredProducts={filteredProducts}
           total={total}
           setTotal={setTotal}
+          allProducts={allProducts}
+          setAllProducts={setAllProducts}
         />
       )
     );

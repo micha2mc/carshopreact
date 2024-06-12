@@ -1,12 +1,19 @@
 import { Button } from "reactstrap";
 import "./css/Card.css";
 
-function Card({ img, cod, description, price, stock, productCarrito, setProductCarrito, filteredProducts, total, setTotal }) {
+function Card({ img, cod, description, price, stock, productCarrito, setProductCarrito, filteredProducts,
+  total, setTotal, allProducts, setAllProducts }) {
 
   let flagStock = false;
   const onAddProduct = () => {
 
     let product = filteredProducts.find(item => item.cod === cod);
+
+    const productAllTemp = allProducts.map(itemTem => itemTem.id === product.id ?
+      { ...itemTem, stock: itemTem.stock - 1 } : itemTem
+    );
+
+    setAllProducts([...productAllTemp])
 
     if (productCarrito.find(item => item.id === product.id)) {
 
