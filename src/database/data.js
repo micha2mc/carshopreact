@@ -9,7 +9,7 @@ const data = [
     img: 'img/sedan_01.jpg',
     category: "sed",
     quantity: 1,
-    
+
   },
   {
     id: 2,

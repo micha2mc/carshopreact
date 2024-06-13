@@ -9,6 +9,7 @@ function Card({ img, cod, description, price, stock, productCarrito, setProductC
 
     let product = filteredProducts.find(item => item.cod === cod);
 
+
     const productAllTemp = allProducts.map(itemTem => itemTem.id === product.id ?
       { ...itemTem, stock: itemTem.stock - 1 } : itemTem
     );
@@ -16,14 +17,15 @@ function Card({ img, cod, description, price, stock, productCarrito, setProductC
     setAllProducts([...productAllTemp])
 
     if (productCarrito.find(item => item.id === product.id)) {
-
       const products = productCarrito.map(itemTem => itemTem.id === product.id ?
         { ...itemTem, quantity: itemTem.quantity + 1 } : itemTem
       );
       setTotal(total + product.price * product.quantity);
       return setProductCarrito([...products]);
     }
+    product.quantity = 1;
     setTotal(total + product.price * product.quantity);
+
     setProductCarrito([...productCarrito, product]);
 
   }
@@ -31,7 +33,6 @@ function Card({ img, cod, description, price, stock, productCarrito, setProductC
   if (stock <= 0) {
     flagStock = true;
   }
-
 
   return (
     <div className="col-12  mb-2  col-md-4">

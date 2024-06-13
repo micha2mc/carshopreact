@@ -120,6 +120,8 @@ function App() {
             setProductCarrito={setProductCarrito}
             total={total}
             setTotal={setTotal}
+            allProducts={allProducts}
+            setAllProducts={setAllProducts}
           />
         </div>
       </div>

@@ -1,4 +1,17 @@
-function Carrito({ productCarrito, setProductCarrito, total, setTotal }) {
+function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProducts, setAllProducts }) {
+
+
+  const onDeleteProduct = product => {
+
+    const productAllTemp = allProducts.map(itemTem => itemTem.id === product.id ? { ...itemTem, stock: itemTem.stock + 1 } : itemTem);
+    const products = productCarrito.map(itemTem => itemTem.id === product.id ? { ...itemTem, quantity: itemTem.quantity - 1 } : itemTem).filter(it => it.quantity >= 1);
+
+    setProductCarrito([...products]);
+    setTotal(total - product.price);
+
+    return setAllProducts([...productAllTemp]);
+  };
+
   return (
     <>
       <div className="col-lg-3">
@@ -39,6 +52,7 @@ function Carrito({ productCarrito, setProductCarrito, total, setTotal }) {
                     strokeWidth='1.5'
                     stroke='currentColor'
                     className='icon-close'
+                    onClick={() => onDeleteProduct(product)}
                   >
                     <path
                       strokeLinecap='round'
