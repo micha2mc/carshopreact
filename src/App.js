@@ -20,7 +20,7 @@ function App() {
   const [productCarrito, setProductCarrito] = useState([]);
   const [total, setTotal] = useState(0);
 
-  //******************Categorias */
+  //******************Categorias ********************************/
   const [categorias, setCategorias] = useState([
     {
       categ: "",
@@ -107,9 +107,7 @@ function App() {
         <div className="row">
           <div className="col">
             <div className="row">
-
               <Products result={result} />
-
             </div>
           </div>
 
