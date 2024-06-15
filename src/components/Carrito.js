@@ -17,6 +17,7 @@ function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProduc
     setProductCarrito([]);
     setQuery(!isModal);
     setSelectedCategory(null);
+    setTotal(0);
   };
 
   const onDeleteProduct = product => {
@@ -88,8 +89,8 @@ function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProduc
             <thead></thead>
             <tbody id="footer">
               <tr>
-                <td>Total:</td>
-                <td><span>{total}</span>€</td>
+                <td className='total-a-pagar'>Total:</td>
+                <td><span className='total-a-pagar'>{total}</span>€</td>
                 <td colspan="2">
                   <Button color="primary" onClick={handleModal}>{" "}Realizar Pedido
                   </Button>

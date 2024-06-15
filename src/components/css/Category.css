@@ -1,6 +1,5 @@
 .category-flex {
     display: flex;
-    /*margin-left: 20rem;*/
 }
 
 
@@ -8,7 +7,7 @@
 .btns {
     padding: 10px 20px;
     margin-right: 6px;
-    background: transparent;
+    background: rgb(5, 236, 159);
     border: 0.6px solid #ccc;
     border-radius: 5px;
     color: #323232;

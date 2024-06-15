@@ -1,8 +1,13 @@
+.total-a-pagar {
+    font-weight: bold;
+    font-size: 1.5em;;
+}
+
 .icon-close {
     cursor: pointer;
 }
 
-.mensajepedido{
+.mensajepedido {
     font-weight: bold;
-    font-size: large;
+    font-size: 2em;;
 }
