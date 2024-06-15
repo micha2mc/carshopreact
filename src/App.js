@@ -20,7 +20,7 @@ function App() {
   const [productCarrito, setProductCarrito] = useState([]);
   const [total, setTotal] = useState(0);
 
-  //******************CAtegorias */
+  //******************Categorias */
   const [categorias, setCategorias] = useState([
     {
       categ: "",
@@ -42,8 +42,6 @@ function App() {
 
 
   //****************Input filter *************************
-
-
   const addProduct = (obj) => {
 
     let miImagen = obj[0]['img']
@@ -122,6 +120,7 @@ function App() {
             setTotal={setTotal}
             allProducts={allProducts}
             setAllProducts={setAllProducts}
+            setSelectedCategory={setSelectedCategory}
           />
         </div>
       </div>

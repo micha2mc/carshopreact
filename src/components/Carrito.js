@@ -1,5 +1,23 @@
-function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProducts, setAllProducts }) {
+import './css/Carrito.css';
+import { useState } from "react";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
+function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProducts, setAllProducts, setSelectedCategory }) {
 
+  const [isModal, setQuery] = useState(false);
+  const handleModal = () => {
+    setQuery(!isModal);
+  };
+
+  const pedidoRealizado = () => {
+    setProductCarrito([]);
+    setQuery(!isModal);
+    setSelectedCategory(null);
+  };
 
   const onDeleteProduct = product => {
 
@@ -46,12 +64,12 @@ function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProduc
                   <td>{product.quantity}</td>
                   <td><span>{product.quantity * product.price}</span>€</td>
                   <td><svg
+                    className='icon-close'
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'
                     strokeWidth='1.5'
                     stroke='currentColor'
-                    className='icon-close'
                     onClick={() => onDeleteProduct(product)}
                   >
                     <path
@@ -73,10 +91,8 @@ function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProduc
                 <td>Total:</td>
                 <td><span>{total}</span>€</td>
                 <td colspan="2">
-
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pedidoModal">
-                    Realizar Pedido
-                  </button>
+                  <Button color="primary" onClick={handleModal}>{" "}Realizar Pedido
+                  </Button>
 
                 </td>
               </tr>
@@ -85,6 +101,17 @@ function Carrito({ productCarrito, setProductCarrito, total, setTotal, allProduc
         </> : <></>}
 
       </div>
+
+      <Modal isOpen={isModal}>
+        <ModalBody>
+          <p className='mensajepedido'>Pedido realizado</p>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={() => pedidoRealizado()}>
+            OK
+          </Button>
+        </ModalFooter>
+      </Modal>
     </>
   );
 }
