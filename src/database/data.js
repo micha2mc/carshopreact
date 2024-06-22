@@ -3,7 +3,7 @@ const data = [
   {
     id: 1,
     cod: "Sed001",
-    description: "DriveK del Kia Ceed, un modelo que desembarcó en nuestro mercado en 2021. Berlina 5 puertas que te encantará por sus dimensiones compactas.",
+    description: "DriveK del Kia Ceed, un modelo que desembarcó en nuestro mercado en 2021. Berlina 5 puertas que te encantará por sus dimensiones compactas. Con un potente motor",
     price: "14000",
     stock: 5,
     img: 'img/sedan_01.jpg',
@@ -14,7 +14,7 @@ const data = [
   {
     id: 2,
     cod: "Fam001",
-    description: "Este coche se presenta como un automóvil innovador del segmento Berlina 5 puertas que te encantará por sus dimensiones compactas.",
+    description: "Este coche se presenta como un automóvil innovador del segmento Berlina 5 puertas que te encantará por sus dimensiones compactas. Con un potente motor",
     price: "16000",
     stock: 15,
     img: 'img/familiar_01.jpg',
